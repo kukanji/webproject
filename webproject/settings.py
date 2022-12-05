@@ -82,7 +82,6 @@ WSGI_APPLICATION = 'webproject.wsgi.application'
 
 DATABASES = {
     'default': {
-<<<<<<< HEAD
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'webproject',
         'USER': 'postgres',
@@ -92,14 +91,6 @@ DATABASES = {
     }
 }
 
-=======
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
->>>>>>> main
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
