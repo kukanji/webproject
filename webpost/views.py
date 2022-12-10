@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.db import IntegrityError
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 def signupview(request):
@@ -15,3 +16,17 @@ def signupview(request):
         return render(request, 'signup.html', {})
     return render(request, 'signup.html', {})
 
+
+def loginview(request):
+    if request.method == 'POST':
+        username_data = request.POST['username_data']
+        password_data = request.POST['password_data']
+        # ユーザーデータが既に登録されているか照合している
+        user = authenticate(request, username = username_data, password = password_data)
+        # 照会先にユーザーデータが存在したら
+        if user is not None:
+            login(request, user)
+            return redirect('list')
+        else:
+            return redirect('login')
+    return render(request, 'login.html')
