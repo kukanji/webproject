@@ -2,24 +2,18 @@
 
 {% block content %}
 
-<div class = "container">
-<form class = "form-signin"> method = 'post' > {% csrf_token %}
-    <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
-
-    <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInput" placeholder="username" name = "username_data" required autofocus>
-        <label for="floatingInput">Username</label>
-    </div>
-    <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name = "password_data" required>
-        <label for="floatingPassword">Password</label>
-    </div>
-
+<div class="container">
+<form class="form-signin" method='post'>{% csrf_token %}
+    <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+    <label for="inputEmail" class="sr-only">Username</label>
+    <input type="text" id="inputEmail" class="form-control" placeholder="username" name="username_data" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password_data" required>
     <div class="checkbox mb-3">
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 </form>
 </div>
 {% endblock content %}
