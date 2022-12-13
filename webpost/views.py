@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import authenticate, login
 from .models import ReviewModel
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 
 # Create your views here.
 def signupview(request):
@@ -41,3 +43,10 @@ def listview(request):
 def detailview(request, pk):
     object = ReviewModel.objects.get(pk = pk)
     return render(request, 'detail.html', {'object': object})
+
+
+class CreateClass(CreateView):
+    template_name = 'create.html'
+    model = ReviewModel
+    fields = ('title', 'content', 'author', 'images', 'evaluation')
+    success_url = reverse_lazy('list')
