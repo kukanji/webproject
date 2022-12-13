@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import authenticate, login
+from .models import ReviewModel
 
 # Create your views here.
 def signupview(request):
@@ -30,3 +31,8 @@ def loginview(request):
         else:
             return redirect('login')
     return render(request, 'login.html')
+
+
+def listview(request):
+    object_list = ReviewModel.objects.all()
+    return render(request, 'list.html', {'object_list': object_list})
